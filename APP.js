@@ -49,7 +49,7 @@ server.listen(8001);
 var data;
 
 //Read in data from Redis
-redis.get('name', function(error, result) {
+redis.smembers('name', function(error, result) {
     if (error) console.log('Error: '+ error);
     else{
       data=result;
@@ -62,13 +62,10 @@ var io = require('socket.io').listen(server);
 io.set('log level', 1);
  
 io.sockets.on('connection', function(socket){
-            //Read in data from redis
-	//data='hiboy';
-
             //Broad cast the message
-  	socket.emit('msg',{'msg':data});
-     socket.emit('msg',{'msg':data});
-     socket.emit('msg',{'msg':data});
-           //socket.broadcast.emit('msg',{'msg':data});
+            for (var i = 0; i < data.length; i++) {
+                socket.emit('msg',{'msg':data[i]});
+                console.log(data[i]);
+            };
 });
 
