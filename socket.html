@@ -1,0 +1,31 @@
+<html>
+<head>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.js">
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+</head>
+<body>
+<div id="messages"></div>
+<script>
+  var socket = io.connect();
+  var buf=[];
+  socket.on('msg',function(msg){
+          buf.push(msg.msg);
+           /*var tmp=$('<div class="message"></div>').append('<span class="text">' + buf.length+ '</span>');*/
+           if (buf.length==1) {
+                  $('#messages') .prepend('<input type="button" value="See new update" id="update" /> ') .click(function(){
+                   $("#update").remove();
+                   for (var i = 0; i <buf.length; i++) {
+                      var tmp=$('<div class="message"></div>').append('<span class="text">' + buf[i] + '</span>');
+                    $("#messages").prepend(tmp);
+                   };  
+                  }); 
+           };
+            $("#messages").prepend(tmp);
+  });
+</script>
+
+</body>
+</html>
