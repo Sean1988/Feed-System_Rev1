@@ -4,7 +4,7 @@ var url = require('url');
 var fs = require('fs');
 
 //Initialize Redis
-var _redis = require("redis");
+var _redis = require('redis');
 var redis = _redis.createClient();
  
  //Create Server
@@ -39,33 +39,32 @@ var server = http.createServer(function(request, response){
             response.end();
             break;
     }
-    //response.end();
 });
  
-server.listen(8001); 
+server.listen(8080); 
 
-server.listen(8001); 
+//Initialize  socket.io
+var io = require('socket.io').listen(server);
+io.set('log level', 1);
 
 var data;
+var user;
 
-//Read in data from Redis
-redis.smembers('name', function(error, result) {
-    if (error) console.log('Error: '+ error);
-    else{
-      data=result;
-      console.log('Name: ' + data);
-    }
-});
-
-var io = require('socket.io').listen(server);
-
-io.set('log level', 1);
- 
+//Send message to client
 io.sockets.on('connection', function(socket){
-            //Broad cast the message
-            for (var i = 0; i < data.length; i++) {
-                socket.emit('msg',{'msg':data[i]});
-                console.log(data[i]);
-            };
+           //console.log('check:'+data);
+           redis.subscribe("abc");
+           redis.on("message",function(channel,message){
+                data=message;
+                socket.emit('msg',{'msg':data});
+                console.log("client channel recieve from channel : %s, the message : %s", channel, message);
+            });
+
+           var redis2=_redis.createClient();
+           socket.on('client_data',function(data){
+                console.log("user id:"+data.letter);
+                redis2.sadd("LiveUser",data.letter);
+           });
 });
+
 

@@ -11,21 +11,44 @@
 <script>
   var socket = io.connect();
   var buf=[];
+  var leng=0;
   socket.on('msg',function(msg){
           buf.push(msg.msg);
-           /*var tmp=$('<div class="message"></div>').append('<span class="text">' + buf.length+ '</span>');*/
            if (buf.length==1) {
-                  $('#messages') .prepend('<input type="button" value="See new update" id="update" /> ') .click(function(){
-                   $("#update").remove();
-                   for (var i = 0; i <buf.length; i++) {
-                      var tmp=$('<div class="message"></div>').append('<span class="text">' + buf[i] + '</span>');
-                    $("#messages").prepend(tmp);
-                   };  
+                    $('#messages') .prepend('<input type="button" value="See new update" id="update" /> ') .click(function(){
+                    $("#update").remove();
+                    for (var i = 0; i <buf.length; i++) {
+                        var tmp=$('<div class="message"></div>').append('<span class="text">' + buf[i] + '</span>');
+                        $("#messages").prepend(tmp);
+                    };  
+                    buf=[];
                   }); 
            };
             $("#messages").prepend(tmp);
   });
 </script>
+
+  <script>
+  var socket = io.connect();
+  socket.on('date', function(data){
+    $('#date').text(data.date);
+  });
+   
+  $(document).ready(function(){
+    $('#login').click(
+        function(){
+          alert(id.userid.value);
+          socket.emit('client_data', {'letter': id.userid.value});
+        }
+      );
+  });
+
+  </script>
+  <form id="id">
+  <input type="text" name="userid"/>
+  </form>
+  <input id="login" type="button" value="Login"/>
+  <input type="reset" value="Cancel"/>
 
 </body>
 </html>

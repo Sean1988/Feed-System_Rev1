@@ -1,0 +1,74 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install', 'redis-client' ]
+2 info using npm@1.2.24
+3 info using node@v0.10.9
+4 verbose node symlink /usr/bin/node
+5 verbose read json /home/bx/Feed System/package.json
+6 verbose read json /home/bx/Feed System/node_modules/express/package.json
+7 verbose read json /home/bx/Feed System/node_modules/socket.io/package.json
+8 verbose read json /home/bx/Feed System/package.json
+9 verbose cache add [ 'redis-client', null ]
+10 verbose cache add name=undefined spec="redis-client" args=["redis-client",null]
+11 verbose parsed url { protocol: null,
+11 verbose parsed url   slashes: null,
+11 verbose parsed url   auth: null,
+11 verbose parsed url   host: null,
+11 verbose parsed url   port: null,
+11 verbose parsed url   hostname: null,
+11 verbose parsed url   hash: null,
+11 verbose parsed url   search: null,
+11 verbose parsed url   query: null,
+11 verbose parsed url   pathname: 'redis-client',
+11 verbose parsed url   path: 'redis-client',
+11 verbose parsed url   href: 'redis-client' }
+12 silly lockFile 9e2e1391-redis-client redis-client
+13 verbose lock redis-client /home/bx/.npm/9e2e1391-redis-client.lock
+14 silly lockFile 9e2e1391-redis-client redis-client
+15 silly lockFile 9e2e1391-redis-client redis-client
+16 verbose addNamed [ 'redis-client', '' ]
+17 verbose addNamed [ null, '' ]
+18 silly lockFile a988f359-redis-client redis-client@
+19 verbose lock redis-client@ /home/bx/.npm/a988f359-redis-client.lock
+20 silly addNameRange { name: 'redis-client', range: '', hasData: false }
+21 verbose url raw redis-client
+22 verbose url resolving [ 'https://registry.npmjs.org/', './redis-client' ]
+23 verbose url resolved https://registry.npmjs.org/redis-client
+24 info trying registry request attempt 1 at 10:46:14
+25 http GET https://registry.npmjs.org/redis-client
+26 http 200 https://registry.npmjs.org/redis-client
+27 silly registry.get cb [ 200,
+27 silly registry.get   { vary: 'Accept',
+27 silly registry.get     server: 'CouchDB/1.3.0 (Erlang OTP/R15B03)',
+27 silly registry.get     etag: '"CEPH4YK9Y7DHLNG66LYINR1XL"',
+27 silly registry.get     date: 'Tue, 11 Jun 2013 14:46:14 GMT',
+27 silly registry.get     'content-type': 'application/json',
+27 silly registry.get     'content-length': '2051' } ]
+28 silly addNameRange number 2 { name: 'redis-client', range: '', hasData: true }
+29 silly addNameRange versions [ 'redis-client', [ '0.3.5' ] ]
+30 verbose addNamed [ 'redis-client', '0.3.5' ]
+31 verbose addNamed [ '0.3.5', '0.3.5' ]
+32 silly lockFile 8f611abf-redis-client-0-3-5 redis-client@0.3.5
+33 verbose lock redis-client@0.3.5 /home/bx/.npm/8f611abf-redis-client-0-3-5.lock
+34 silly lockFile 83908039-is-client-redis-client-0-3-5-tgz https://registry.npmjs.org/redis-client/-/redis-client-0.3.5.tgz
+35 verbose lock https://registry.npmjs.org/redis-client/-/redis-client-0.3.5.tgz /home/bx/.npm/83908039-is-client-redis-client-0-3-5-tgz.lock
+36 verbose addRemoteTarball [ 'https://registry.npmjs.org/redis-client/-/redis-client-0.3.5.tgz',
+36 verbose addRemoteTarball   '787b552912397a60f46e23cee4bbbbc9f6806e78' ]
+37 silly lockFile 83908039-is-client-redis-client-0-3-5-tgz https://registry.npmjs.org/redis-client/-/redis-client-0.3.5.tgz
+38 silly lockFile 83908039-is-client-redis-client-0-3-5-tgz https://registry.npmjs.org/redis-client/-/redis-client-0.3.5.tgz
+39 silly lockFile 8f611abf-redis-client-0-3-5 redis-client@0.3.5
+40 silly lockFile 8f611abf-redis-client-0-3-5 redis-client@0.3.5
+41 silly lockFile a988f359-redis-client redis-client@
+42 silly lockFile a988f359-redis-client redis-client@
+43 error Error: EACCES, mkdir '/home/bx/tmp/npm-3082'
+43 error  { [Error: EACCES, mkdir '/home/bx/tmp/npm-3082'] errno: 3, code: 'EACCES', path: '/home/bx/tmp/npm-3082' }
+44 error Please try running this command again as root/Administrator.
+45 error System Linux 3.2.0-29-generic
+46 error command "/usr/bin/node" "/usr/bin/npm" "install" "redis-client"
+47 error cwd /home/bx/Feed System
+48 error node -v v0.10.9
+49 error npm -v 1.2.24
+50 error path /home/bx/tmp/npm-3082
+51 error code EACCES
+52 error errno 3
+53 error stack Error: EACCES, mkdir '/home/bx/tmp/npm-3082'
+54 verbose exit [ 3, true ]
